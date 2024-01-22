@@ -1,0 +1,23 @@
+import random
+import string
+
+def generate_password(length=12):
+    small = string.ascii_lowercase
+    CAPITAL = string.ascii_uppercase
+    digits = string.digits
+    special = string.punctuation
+    all_chars = small + CAPITAL + digits + special
+
+    while True:
+        password = ''.join(random.choice(all_chars) for _ in range(length))
+        if (
+            len(password) >= 8
+            and any(char in small for char in password)
+            and any(char in CAPITAL for char in password)
+            and any(char in digits for char in password)
+            and any(char in special for char in password)
+        ):
+            return password
+
+secure_password = generate_password()
+print(f"Secure password: {secure_password}")
