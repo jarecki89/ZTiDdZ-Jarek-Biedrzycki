@@ -1,0 +1,11 @@
+import base64
+
+def cypher_base64(tekst):
+    code = tekst.encode('utf-8')
+    Coded_text = base64.b64encode(code)
+    return Coded_text.decode('utf-8')
+input = "Franek kimono"
+output = cypher_base64(input)
+
+print(f"Tekst wejściowy: {input}")
+print(f"Wynik szyfrowania: {output}")
